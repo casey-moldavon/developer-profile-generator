@@ -25,3 +25,36 @@ conversion({ html: '<h1>Hello World</h1>' }, function(err, result) {
   result.stream.pipe(fs.createWriteStream('/path/to/anywhere.pdf'));
   conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
 });
+
+
+
+
+// from activity 33 09
+const fs = require("fs");
+const axios = require("axios");
+const inquirer = require("inquirer");
+
+inquirer
+  .prompt({
+    message: "Enter your GitHub username:",
+    name: "username"
+  })
+  .then(function({ username }) {
+    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+
+    axios.get(queryUrl).then(function(res) {
+      const repoNames = res.data.map(function(repo) {
+        return repo.name;
+      });
+
+      const repoNamesStr = repoNames.join("\n");
+
+      fs.writeFile("repos.txt", repoNamesStr, function(err) {
+        if (err) {
+          throw err;
+        }
+
+        console.log(`Saved ${repoNames.length} repos`);
+      });
+    });
+  });
