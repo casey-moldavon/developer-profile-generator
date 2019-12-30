@@ -1,38 +1,62 @@
 const fs = require('fs'); //requires the files system (fs)
 // console.log(fs);
+const axios = require("axios");
+const inquirer = require("inquirer");
+const generateHTML = require("./style.js");
 
 // if you want to work with a file in the directory of node, you have to require("fs");
 // then you use a method within node (such ass readdir)
 // only use asynchronous methods (readdir as opposed to readdirsync)
-// sync stands for synchronous
+// sync stands for synchronous 
 
-const electron = require('./node_modules/electron')
-console.log(electron);
 
-    convertFactory = require('./node_modules/electron-html-to');
+// var pdf = require('html-pdf');
+
+
+// var html = fs.readFileSync('./test/businesscard.html', 'utf8');
  
-var conversion = convertFactory({
-  converterPath: convertFactory.converters.PDF
-});
+// pdf.create().toFile('./businesscard.pdf', function(err, res) {
+//   if (err) return console.log(err);
+//   console.log(res); // { filename: '/app/businesscard.pdf' }
+// });
+
+
+
+
+
+
+
+
+// // This code here is for Electron (copited from the site exactly)
+// const electron = require('electron'),
+// // console.log(electron);
+
+//     convertFactory = require('electron-html-to');
  
-conversion({ html: '<h1>Hello World</h1>' }, function(err, result) {
-  if (err) {
-    console.error(err);
-  }
+// var conversion = convertFactory({
+//   converterPath: convertFactory.converters.PDF
+// });
  
-  console.log(result.numberOfPages);
-  console.log(result.logs);
-  result.stream.pipe(fs.createWriteStream('/path/to/anywhere.pdf'));
-  conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
-});
+// conversion({ html: '<h1>Hello World</h1>' }, function(err, result) {
+//   if (err) {
+//     return console.error(err);
+//   }
+ 
+//   console.log(result.numberOfPages);
+//   console.log(result.logs);
+//   result.stream.pipe(fs.createWriteStream('/path/to/anywhere.pdf'));
+//   conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
+
+// });
+
+
+
 
 
 
 
 // from activity 33 09
-const fs = require("fs");
-const axios = require("axios");
-const inquirer = require("inquirer");
+// const fs = require("fs");
 
 inquirer
   .prompt({
@@ -40,21 +64,21 @@ inquirer
     name: "username"
   })
   .then(function({ username }) {
-    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+    const queryUrl = `https://api.github.com/users/${username}`;
 
     axios.get(queryUrl).then(function(res) {
-      const repoNames = res.data.map(function(repo) {
-        return repo.name;
-      });
 
-      const repoNamesStr = repoNames.join("\n");
+        // return repo.name;
+        console.log(res);
 
-      fs.writeFile("repos.txt", repoNamesStr, function(err) {
-        if (err) {
-          throw err;
-        }
+      // const repoNamesStr = repoNames.join("\n");
 
-        console.log(`Saved ${repoNames.length} repos`);
-      });
+      fs.writeFile("style.js", generateHTML(res, color), function(err, result) {
+        if (err) console.lof("error", err);
+
+      //   console.log(`Saved ${repoNames.length} repos`);
+      // });
     });
   });
+});
+

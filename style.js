@@ -25,7 +25,7 @@ const colors = {
     }
   };
   
-  function generateHTML(data) {
+  function generateHTML(data, color) {
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -171,14 +171,5 @@ const colors = {
               zoom: .75; 
             } 
            }
-        </style>
-        
-        <body>
-
-           <div class = "container"
-        
-        
-        
-        
-        `
+        </style>`
           }
