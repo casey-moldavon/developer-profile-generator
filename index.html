@@ -30,10 +30,24 @@
     body,
     .wrapper {
       height: 100%;
+      margin: 7px;
+    }
+
+    .wrapper-2 {
+      height: 50%;
+      margin: 7px;
     }
 
     .wrapper {
-      background-color: green;
+      background-color: #879cdf;
+
+      /* ${colors[data.color].wrapperBackground}; */
+
+      padding-top: 100px;
+    }
+
+    .wrapper-2 {
+      background-color: #879cdf;
 
       /* ${colors[data.color].wrapperBackground}; */
 
@@ -41,23 +55,19 @@
     }
 
     body {
-      background-color: white;
+      background-color: #E9EDEE;
       -webkit-print-color-adjust: exact !important;
       font-family: 'Cabin', sans-serif;
     }
 
     main {
       background-color: #E9EDEE;
+      
       height: auto;
       padding-top: 30px;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
       font-family: 'BioRhyme', serif;
       margin: 0;
     }
@@ -65,23 +75,18 @@
     h1 {
       font-size: 3em;
     }
-
     h2 {
       font-size: 2.5em;
     }
-
     h3 {
       font-size: 2em;
     }
-
     h4 {
       font-size: 1.5em;
     }
-
     h5 {
       font-size: 1.3em;
     }
-
     h6 {
       font-size: 1.2em;
     }
@@ -94,7 +99,7 @@
       justify-content: center;
       flex-wrap: wrap;
 
-      background-color: green;
+      background-color: #ff8374;
 
       /* ${colors[data.color].headerBackground};
            color: ${colors[data.color].headerColor}; */
@@ -111,7 +116,7 @@
       object-fit: cover;
       margin-top: -75px;
 
-      border: 6px solid purple;
+      border: 6px solid #fee14c;
 
       /* ${colors[data.color].photoBorderColor}; */
 
@@ -140,6 +145,7 @@
       margin: 5px 10px;
     }
 
+
     .workExp-date {
       font-style: italic;
       font-size: .7em;
@@ -165,17 +171,14 @@
       padding: 20px;
       border-radius: 6px;
 
-      background-color: $ {
-        colors[data.color].headerBackground
-      }
+      background-color: #ff8374;
 
-      ;
+      /* ${colors[data.color].headerBackground}; */
 
-      color: $ {
-        colors[data.color].headerColor
-      }
+      color: white;
 
-      ;
+      /* ${colors[data.color].headerColor}; */
+
       margin: 20px;
     }
 
@@ -200,32 +203,49 @@
 </head>
 
 <body>
+    <div class="wrapper">
+        <div class="row">
+          <div class="col">
 
-  <!-- <div class="container"> -->
-  <div class="wrapper">
-    <div class="main">
-      <div class="row">
-        <div class="column">
+              <div class="photo-header">
+                <img src="placeholder">
+                <h1>Hi!</h1>
+                <h2>My Name Is...</h2>
 
-          <div class="photo-header">
-            <img src="placeholder">
-            <h1>Hi!</h1>
-            <h2>My Name Is...</h2>
+                <div class="row">
 
-            <div class="row">
+                  <!-- <div class="workExp-date">currently @ somewhere</div> -->
 
-              <nav class="links-nav"></nav>
-              <div class="nav-link"></div>
-              <div class="nav-link"></div>
-              <div class="nav-link"></div>
-            </div>
+                  <div class="links-nav">
+                    <h6 class="nav-link" id="location">Location PH</h6>
+                    <h6 class="nav-link" id="github">Github PH</h6>
+                    <h6 class="nav-link" id="bio">Bio PH</h6>
+                  </div>
+                </div>
+              </div>
+
+              <main>
+                  <div class="container">
+                    <h3>Super Ultra Mega Derp!</h3>
+                    <div class="row">
+                      <h3 class="card col" id="public-repos">Public Repositories</h3>
+                      <h3 class="card col" id="followers">Followers</h3>
+                    </div>
+                    <div class="row">
+                      <h3 class="card col" id="github-stars">GitHub</h3>
+                      <h3 class="card col" id="following">Following</h3>
+                    </div>
+                  </div>
+
+              </main>
+
           </div>
         </div>
-      </div>
     </div>
 
+    <div class="wrapper-2">
+    </div>
 
-      <!-- </div> -->
 </body>
 
 </html>

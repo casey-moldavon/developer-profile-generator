@@ -25,7 +25,7 @@ const colors = {
     }
   };
   
-  function generateHTML(data, color) {
+  module.exports = function generateHTML(dataFromGitHub, color) {
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -53,7 +53,7 @@ const colors = {
            height: 100%;
            }
            .wrapper {
-           background-color: ${colors[data.color].wrapperBackground};
+           background-color: ${colors[color].wrapperBackground};
            padding-top: 100px;
            }
            body {
@@ -95,8 +95,8 @@ const colors = {
            display: flex;
            justify-content: center;
            flex-wrap: wrap;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: ${colors[color].headerBackground};
+           color: ${colors[color].headerColor};
            padding: 10px;
            width: 95%;
            border-radius: 6px;
@@ -107,7 +107,7 @@ const colors = {
            border-radius: 50%;
            object-fit: cover;
            margin-top: -75px;
-           border: 6px solid ${colors[data.color].photoBorderColor};
+           border: 6px solid ${colors[color].photoBorderColor};
            box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
            }
            .photo-header h1, .photo-header h2 {
@@ -150,8 +150,8 @@ const colors = {
            .card {
              padding: 20px;
              border-radius: 6px;
-             background-color: ${colors[data.color].headerBackground};
-             color: ${colors[data.color].headerColor};
+             background-color: ${colors[color].headerBackground};
+             color: ${colors[color].headerColor};
              margin: 20px;
            }
            
@@ -171,5 +171,51 @@ const colors = {
               zoom: .75; 
             } 
            }
-        </style>`
+        </style>
+        </head>
+        <body>
+            <div class="wrapper">
+                <div class="row">
+                  <div class="col">
+
+                      <div class="photo-header">
+                        <img src="placeholder">
+                        <h1>Hi!</h1>
+                        <h2>My Name Is...</h2>
+
+                        <div class="row">
+
+                          <!-- <div class="workExp-date">currently @ somewhere</div> -->
+
+                          <div class="links-nav">
+                            <h6 class="nav-link" id="location">Location PH</h6>
+                            <h6 class="nav-link" id="github">Github PH</h6>
+                            <h6 class="nav-link" id="bio">Bio PH</h6>
+                          </div>
+                        </div>
+                      </div>
+
+                      <main>
+                          <div class="container">
+                            <h3>Super Ultra Mega Derp!</h3>
+                            <div class="row">
+                              <h3 class="card col" id="public-repos">Public Repositories</h3>
+                              <h3 class="card col" id="followers">Followers</h3>
+                            </div>
+                            <div class="row">
+                              <h3 class="card col" id="github-stars">GitHub</h3>
+                              <h3 class="card col" id="following">Following</h3>
+                            </div>
+                          </div>
+                      </main>
+
+                  </div>
+                </div>
+            </div>
+
+            <div class="wrapper-2">
+            </div>
+
+        </body>
+        </html>`
           }
