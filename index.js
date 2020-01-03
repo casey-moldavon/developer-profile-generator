@@ -8,7 +8,7 @@ const path = require("path");
 
 
 const everything = async () => {
-    const resultOfUserInput = await inquirer.prompt([
+    const userResult = await inquirer.prompt([
       {
         name: "username",
         message: "Give me your username, stupid:",
@@ -21,15 +21,8 @@ const everything = async () => {
       }
     ]);
 
-    /*
-    resultOfUserInput = {
-        username: "sdfgsdfg"
-        color: "blue"
-    }
-    */
-
-    const username = resultOfUserInput.username;
-    const color = resultOfUserInput.color;
+    const username = userResult.username;
+    const color = userResult.color;
     console.log(username);
 
     const queryUrl = `https://api.github.com/users/${username}`;
@@ -37,8 +30,6 @@ const everything = async () => {
     console.log(result);
 
     const stringOfGeneratedHtml = generateHTML(result, color);  
-
-
 
     const html5ToPDF = new HTML5ToPDF({
       inputBody: stringOfGeneratedHtml,
@@ -55,3 +46,7 @@ const everything = async () => {
 everything().then(function(){
     console.log('complete');
 });
+
+// function gitHutInfo (){
+
+// }
