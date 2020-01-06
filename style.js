@@ -25,6 +25,11 @@ const colors = {
     }
   };
   
+  // $("#num-repos").text(result.data.public_repos);
+  // $("#num-followers").text(result.data.followers);
+  // $("#num-stars").text(result.data.starred_url);
+  // $("#num-following").text(result.data.following);
+
   module.exports = function generateHTML(dataFromGitHub, color) {
     return `<!DOCTYPE html>
   <html lang="en">
@@ -165,6 +170,10 @@ const colors = {
            color: inherit;
            font-weight: bold;
            }
+
+           .num {
+             margin: 0;
+           }
   
            @media print { 
             body { 
@@ -179,32 +188,32 @@ const colors = {
                   <div class="col">
 
                       <div class="photo-header">
-                        <img src="placeholder">
+                        <img src="${dataFromGitHub.data.avatar_url}">
                         <h1>Hi!</h1>
-                        <h2>My Name Is...</h2>
+                        <h2>My Name Is ${dataFromGitHub.data.login}</h2>
 
                         <div class="row">
 
                           <!-- <div class="workExp-date">currently @ somewhere</div> -->
 
                           <div class="links-nav">
-                            <h6 class="nav-link" id="location">Location PH</h6>
-                            <h6 class="nav-link" id="github">Github PH</h6>
-                            <h6 class="nav-link" id="bio">Bio PH</h6>
+                            <h6 class="nav-link" id="location"> <i class="fas fa-location-arrow"></i> ${dataFromGitHub.data.location}</h6>
+                            <h6 class="nav-link" href="${dataFromGitHub.data.url}" id="github"> <i class="fab fa-github"></i> Github PH</h6>
+                            <h6 class="nav-link" href="${dataFromGitHub.data.blog}" id="bio"> <i class="fas fa-rss-square"></i> Bio PH</h6>
                           </div>
                         </div>
                       </div>
 
                       <main>
                           <div class="container">
-                            <h3>Super Ultra Mega Derp!</h3>
+                            <h3>${dataFromGitHub.data.bio}</h3>
                             <div class="row">
-                              <h3 class="card col" id="public-repos">Public Repositories</h3>
-                              <h3 class="card col" id="followers">Followers</h3>
+                              <h3 class="card col" id="public-repos">Public Repositories <p class="num" id="num-repos"> ${dataFromGitHub.data.public_repos}</p></h3>
+                              <h3 class="card col" id="followers">Followers <p class="num" id="num-followers"> ${dataFromGitHub.data.followers}</p class="num"></h3>
                             </div>
                             <div class="row">
-                              <h3 class="card col" id="github-stars">GitHub</h3>
-                              <h3 class="card col" id="following">Following</h3>
+                              <h3 class="card col" id="github-stars">GitHub Stars <p class="num" id="num-stars"> ${dataFromGitHub.data.public_gists}</p class="num"></h3>
+                              <h3 class="card col" id="following">Following <p class="num" id="num-following"> ${dataFromGitHub.data.following}</p class="num"></h3>
                             </div>
                           </div>
                       </main>

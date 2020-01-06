@@ -1,17 +1,15 @@
-const fs = require('fs'); //requires the files system (fs)
-// console.log(fs);
+const fs = require('fs');
 const axios = require("axios");
 const inquirer = require("inquirer");
 const generateHTML = require("./style.js");
 const HTML5ToPDF = require("html5-to-pdf");
 const path = require("path");
 
-
 const everything = async () => {
     const userResult = await inquirer.prompt([
       {
         name: "username",
-        message: "Give me your username, stupid:",
+        message: "I demand your GitHub username Human!!!",
       },
       {
         name: "color",
@@ -29,7 +27,7 @@ const everything = async () => {
     const result = await axios.get(queryUrl);
     console.log(result);
 
-    const stringOfGeneratedHtml = generateHTML(result, color);  
+    const stringOfGeneratedHtml = generateHTML(result, color);
 
     const html5ToPDF = new HTML5ToPDF({
       inputBody: stringOfGeneratedHtml,
@@ -39,14 +37,10 @@ const everything = async () => {
     await html5ToPDF.start()
     await html5ToPDF.build()
     await html5ToPDF.close()
-    console.log("DONE")
-    // process.exit(0)
+    // console.log("DONE")
+
   };
 
 everything().then(function(){
     console.log('complete');
 });
-
-// function gitHutInfo (){
-
-// }
