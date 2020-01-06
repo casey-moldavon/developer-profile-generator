@@ -4,7 +4,7 @@ For this project i was responsible for writing backend code to prompt a user for
 ​
 ## Getting Started
 ​
-To start, we students were given most of the styling css to use for our application. This was my first encountered challenge as i had to analyze that along with the provided image to determine how the html should be structured. I would have much rather done things the other way around as this took an alarming amount of time but was an interesting challenge to overcome.
+To start, we students were given most of the styling css to use for our application. This was my first encountered challenge as i had to analyze that along with the provided image to determine how the html should be structured. I would have much rather done things the other way around as this took an alarming amount of time but was an interesting challenge to overcome. To help with this though, i found using an index.html to test the appearance in the browser was quite helpful (this file should definitely be ignored though as i stopped updating it after the styling and html were complete.)
 
 images below will display what was given...
 
@@ -17,7 +17,7 @@ code for html5-to-pdf below...
 
 This was needed to populate the profile with the users information which was obtained through a prompt given in the terminal. I learned how to do this through a class activity (number 33 of 09-NodeJS). Made some modifications here and there of course but it was pretty easy to understand once i discovered a working example. From there i followed a similar data structure provided in the styling, placing into the html and then i was about done.
 
-Overall this project was quite challenging and time consuming but i feel that i learned a lot and im happy i had the break to work through it. Would have been quite horrible if i only had half a week.
+Overall this project was quite challenging and time consuming but i feel that i learned a lot and im happy i had the break to work through it. I definiely didn't commit changes as often as i should have but mostly because i often felt that few changes were being made that didn't break everything.
 
 Gif below of the full process...
 
