@@ -9,7 +9,7 @@ const everything = async () => {
     const userResult = await inquirer.prompt([
       {
         name: "username",
-        message: "I demand your GitHub username Human!!!",
+        message: "I demand your GitHub username Human!!!:",
       },
       {
         name: "color",

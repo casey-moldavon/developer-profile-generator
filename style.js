@@ -131,6 +131,7 @@ const colors = {
            .nav-link {
            display: inline-block;
            margin: 5px 10px;
+           font-size: 20px;
            }
            .workExp-date {
            font-style: italic;
@@ -197,9 +198,9 @@ const colors = {
                           <!-- <div class="workExp-date">currently @ somewhere</div> -->
 
                           <div class="links-nav">
-                            <h6 class="nav-link" id="location"> <i class="fas fa-location-arrow"></i> ${dataFromGitHub.data.location}</h6>
-                            <h6 class="nav-link" href="${dataFromGitHub.data.url}" id="github"> <i class="fab fa-github"></i> Github PH</h6>
-                            <h6 class="nav-link" href="${dataFromGitHub.data.blog}" id="bio"> <i class="fas fa-rss-square"></i> Bio PH</h6>
+                            <a class="nav-link" id="location"><i class="fas fa-location-arrow"></i> ${dataFromGitHub.data.location}</a>
+                            <a href="${dataFromGitHub.data.url}" class="nav-link" id="github"><i class="fab fa-github"></i>Github</a>
+                            <a href="${dataFromGitHub.data.blog}" class="nav-link" id="bio"><i class="fas fa-rss-square"></i>Bio</a>
                           </div>
                         </div>
                       </div>
